@@ -1,0 +1,91 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.conda/
+
+# Secrets / local config
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets/
+credentials/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs / runtime
+*.log
+logs/
+run/
+runtime/
+tmp/
+.cache/
+
+# Datasets / captures
+data/
+dataset/
+datasets/
+pcap/
+pcaps/
+*.pcap
+*.pcapng
+*.npy
+*.npz
+*.parquet
+*.feather
+
+# Model weights / binary artifacts
+models/
+checkpoints/
+*.cbm
+*.pth
+*.pt
+*.onnx
+*.pkl
+*.joblib
+
+# Databases / service state
+*.db
+*.sqlite
+*.sqlite3
+postgres-data/
+redis-data/
+minio-data/
+
+# Frontend
+node_modules/
+dist/
+build/
+.next/
+
+# Archives / generated submissions
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.rar
+artifacts/
+releases/
+
+# Local experiment outputs
+outputs/
+results/raw/
+wandb/
+mlruns/

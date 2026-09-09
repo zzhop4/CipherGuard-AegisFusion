@@ -1,0 +1,54 @@
+{
+  "status": "method_contract_reconstruction",
+  "name": "ServiceShape",
+  "role": "research_representation_only",
+  "production_detector": false,
+  "provenance": {
+    "known_original_entries": [
+      "audit_service_relative_causal_v1.py",
+      "train_serviceshape_xd_relative_v1.py",
+      "eval_serviceshape_xd_unsw.py",
+      "ServiceShape V2 scripts"
+    ],
+    "complete_original_source_recovered": false,
+    "portable_core_claim": "reconstructs only formulas, past-only semantics, research role, and frozen GO/NO-GO conclusions documented in final competition materials"
+  },
+  "problem": "absolute byte/rate magnitudes drift across services and network environments",
+  "representation": {
+    "relative_log": "r(x,b) = log(1+x) - log(1+b)",
+    "robust_service_deviation": "z_robust = (x - median(H_service)) / (IQR(H_service) + epsilon)",
+    "history_direction": "past_only",
+    "current_flow_in_its_own_baseline": false,
+    "future_information": false,
+    "service_identity_as_numeric_feature": false
+  },
+  "frozen_evidence": {
+    "v1_source_temporal": {
+      "auroc": 0.8596,
+      "auprc": 0.4310,
+      "interpretation": "representation evidence"
+    },
+    "v1_unsw_target_context_ranking": {
+      "auroc": 0.6933,
+      "auprc": 0.0835,
+      "interpretation": "cross-domain representation signal"
+    },
+    "v2_source_temporal": {
+      "auroc": 0.8518,
+      "auprc": 0.4717,
+      "interpretation": "source-domain representation retained"
+    },
+    "v2_unsw": {
+      "auroc": 0.5831,
+      "auprc": 0.1462,
+      "pre_registered_auroc_gate": 0.72,
+      "gate_passed": false
+    }
+  },
+  "final_decision": {
+    "representation": "GO",
+    "standalone_detector": "NO-GO",
+    "strong_zero_shot_generalization_solved": false,
+    "required_wording": "ServiceShape shows service-relative representation signal but is not promoted to the production detector."
+  }
+}

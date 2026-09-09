@@ -1,0 +1,61 @@
+{
+  "status": "frozen_before_v2_results",
+  "name": "ChainLens-QoA Causal Backbone",
+  "qoa_full_name": "Quality of Attribution",
+  "inherits": "ChainLens-QoA V1",
+  "change_from_v1": "causal edge sparsification only",
+  "purpose": "causally organize heterogeneous CipherGuard alerts into compact attack evidence graphs",
+  "non_goal": [
+    "not a new attack classifier",
+    "not an attack probability",
+    "not an unknown-attack detector",
+    "not a replacement for AegisFusion"
+  ],
+  "privacy_and_leakage": {
+    "payload_text": false,
+    "decryption": false,
+    "ip_and_ports": "correlation keys only; never model numeric features",
+    "future_information": false
+  },
+  "explicit_correlation": {
+    "policy": "preserve every valid explicit prior-alert reference",
+    "strength": "strong",
+    "component_edge": true
+  },
+  "same_pair_temporal": {
+    "maximum_gap_seconds": 600,
+    "policy": "connect only to the nearest previous alert with identical src_ip and dst_ip",
+    "strength": "medium",
+    "component_edge": true
+  },
+  "same_source_temporal": {
+    "maximum_gap_seconds": 120,
+    "policy": "optional visual context only; connect only the nearest previous same-source alert when the destination differs",
+    "strength": "weak",
+    "component_edge": false
+  },
+  "qoa_profile": {
+    "not_calibrated_probability": true,
+    "reported_components": [
+      "explicit_edge_count",
+      "pair_edge_count",
+      "weak_edge_count",
+      "evidence_layer_count",
+      "behavior_count",
+      "stage_count",
+      "temporal_span_seconds"
+    ],
+    "tier_A": "at least one explicit correlation edge AND at least two evidence layers",
+    "tier_B": "explicit correlation exists OR same-pair temporal linkage spans at least two behaviors with at least two evidence layers",
+    "tier_C": "same-pair temporal linkage exists",
+    "tier_D": "isolated or only weak shared-source context"
+  },
+  "goal": [
+    "preserve causal connectivity",
+    "remove transitive temporal clique edges",
+    "produce compact evidence graphs",
+    "reduce graph construction from quadratic pair enumeration toward linear streaming behavior"
+  ],
+  "unknown_labels_used": false,
+  "campaign_labels_used_for_graph": false
+}

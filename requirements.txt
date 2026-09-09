@@ -1,0 +1,12 @@
+# CI-verified portable runtime dependencies.
+# These pins were validated on Ubuntu 24.04 + CPython 3.11 on 2026-09-09.
+# They are NOT a claim about the exact historical competition-server environment.
+numpy==2.4.6
+pandas==3.0.5
+pyarrow==25.0.1
+catboost==1.2.10
+scikit-learn==1.9.0
+matplotlib==3.11.1
+fastapi==0.141.1
+uvicorn[standard]==0.52.4
+pydantic==2.13.5

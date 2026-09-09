@@ -1,0 +1,69 @@
+{
+  "status": "frozen_evidence_contract_reconstruction",
+  "purpose": "keep main-domain performance separate from strict external stress tests",
+  "original_evaluator_source": {
+    "known_entries": [
+      "eval_cicids2017_final_v2.py",
+      "eval_ton_core_zero_shot_1.py"
+    ],
+    "complete_source_recovered": false,
+    "replacement_evaluator_claimed": false
+  },
+  "primary_performance": {
+    "dataset": "CSE-CIC-IDS2018",
+    "role": "independent main-domain test",
+    "multiclass_macro_f1": 0.9038220080830052,
+    "accuracy": 0.9888564691963997,
+    "claim_role": "primary model-performance evidence"
+  },
+  "external_stress_tests": {
+    "CICIDS2017": {
+      "role": "production-faithful single-snapshot external stress test",
+      "target_domain_retuning": false,
+      "valid_flows": 2830743,
+      "precision": 0.4258,
+      "recall": 0.2648,
+      "f1": 0.3265461806096828,
+      "benign_fpr": 0.0876,
+      "auroc": 0.6606,
+      "auprc": 0.4232,
+      "final_prediction_selected_before_external_score": true,
+      "strong_generalization_claim": "NO_GO",
+      "interpretation": "external domain-shift stress evidence, not the project headline score"
+    },
+    "NF-ToN-IoT-v3": {
+      "role": "sealed one-shot zero-shot external stress test",
+      "rows": 27520260,
+      "attack_rows": 10728046,
+      "common_feature_compatibility": "42/42",
+      "threshold": 0.2666317962,
+      "threshold_source": "CSE source validation",
+      "target_domain_retuning": false,
+      "evaluator_frozen_before_score": true,
+      "model_frozen_before_score": true,
+      "threshold_frozen_before_score": true,
+      "protocol_frozen_before_score": true,
+      "one_shot": true,
+      "precision": 0.5461,
+      "recall": 0.4794,
+      "f1": 0.5105852748178797,
+      "fpr": 0.2546,
+      "auroc": 0.5640,
+      "auprc": 0.5870,
+      "method_integrity": "PASS",
+      "strong_generalization_claim": "NO_GO",
+      "interpretation": "sealed external boundary evidence accepted without retuning"
+    }
+  },
+  "claim_policy": {
+    "primary_detection_claim": "Main-domain independent-test performance is the primary model-performance evidence.",
+    "cross_dataset_claim": "CICIDS2017 and NF-ToN-IoT-v3 are strict external stress tests demonstrating both transferable behavior and substantial domain-shift boundaries.",
+    "forbidden_claims": [
+      "cross-dataset F1 exceeds 90%",
+      "strong zero-shot generalization",
+      "external stress scores are the project headline accuracy",
+      "rule alerts are AI detections",
+      "controlled loopback campaign proves arbitrary real-network topology performance"
+    ]
+  }
+}

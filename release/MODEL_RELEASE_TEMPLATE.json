@@ -1,0 +1,74 @@
+{
+  "schema": "cipherguard-model-release-v1",
+  "status": "TEMPLATE_NOT_RELEASE_READY",
+  "source_commit": "REPLACE_WITH_40_HEX_SOURCE_COMMIT",
+  "model_version": "REPLACE_WITH_RELEASE_TAG_OR_MODEL_VERSION",
+  "feature_contract": {
+    "raw_flow_features": 78,
+    "probability_evidence_features": 16,
+    "past_only_temporal_features": 135,
+    "augmented_temporal_features": 229,
+    "temporal_windows": [8, 32, 128]
+  },
+  "threshold_contract": {
+    "family_gate": 0.36,
+    "standalone_binary_evaluation": 0.71,
+    "selective_temporal_expert": 0.85,
+    "infiltration_alert_attack_probability": 0.55
+  },
+  "artifacts": [
+    {
+      "role": "feature_manifest",
+      "path": "data_contract/manifest.json",
+      "sha256": "REPLACE_WITH_SHA256"
+    },
+    {
+      "role": "hierarchical_summary",
+      "path": "models/hierarchical_full_v1/summary.json",
+      "sha256": "REPLACE_WITH_SHA256"
+    },
+    {
+      "role": "binary_attack_gate",
+      "path": "models/hierarchical_full_v1/binary/catboost_binary.cbm",
+      "sha256": "REPLACE_WITH_SHA256"
+    },
+    {
+      "role": "attack_family_classifier",
+      "path": "models/hierarchical_full_v1/attack_family/catboost_attack_family.cbm",
+      "sha256": "REPLACE_WITH_SHA256"
+    },
+    {
+      "role": "attack_family_label_encoder",
+      "path": "models/hierarchical_full_v1/attack_family/label_encoder.json",
+      "sha256": "REPLACE_WITH_SHA256"
+    },
+    {
+      "role": "temporal_summary",
+      "path": "models/temporal_infiltration_full_v1/summary.json",
+      "sha256": "REPLACE_WITH_SHA256"
+    },
+    {
+      "role": "selective_temporal_infiltration_expert",
+      "path": "models/temporal_infiltration_full_v1/catboost_temporal_infiltration_expert.cbm",
+      "sha256": "REPLACE_WITH_SHA256"
+    }
+  ],
+  "provenance": {
+    "training_dataset_names": ["CSE-CIC-IDS2018"],
+    "dataset_redistribution": "DATASETS_NOT_BUNDLED",
+    "license_review": "REQUIRED_BEFORE_PUBLICATION",
+    "third_party_review": "REQUIRED_BEFORE_PUBLICATION"
+  },
+  "release_policy": {
+    "ordinary_git_history": "DO_NOT_COMMIT_MODEL_BINARIES",
+    "distribution_channel": "GITHUB_RELEASE_OR_LFS_AFTER_REVIEW",
+    "require_sha256": true,
+    "require_source_commit": true,
+    "require_known_limitations": true
+  },
+  "known_limitations": [
+    "Main-domain 90.38% Macro-F1 must not be presented as cross-dataset performance.",
+    "Strong zero-shot generalization remains NO-GO.",
+    "Model release does not include dataset redistribution rights."
+  ]
+}
