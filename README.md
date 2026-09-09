@@ -3,7 +3,7 @@
 > 面向加密通信协议的多尺度时序恶意行为检测与可解释溯源系统  
 > Encrypted-Traffic Malicious Behavior Detection & Explainable Attribution
 
-🏆 **第十九届全国大学生信息安全竞赛（作品赛）全国三等奖**
+
 
 ![Source Verification](https://github.com/zzhop4/CipherGuard-AegisFusion/actions/workflows/verify.yml/badge.svg)
 
